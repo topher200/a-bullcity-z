@@ -49,54 +49,54 @@ The above will also clone the Starter kit to your GitHub, you can clone that loc
 
 If you wish to just develop locally and not deploy to Vercel, [follow the steps below](#clone-and-run-locally).
 
-## Clone and run locally
+## Local Development Setup
 
-1. You'll first need a Supabase project which can be made [via the Supabase dashboard](https://database.new)
+### Prerequisites
 
-2. Create a Next.js app using the Supabase Starter template npx command
+This project uses [Volta](https://volta.sh/) to manage Node.js and npm versions. Install Volta:
 
-   ```bash
-   npx create-next-app --example with-supabase with-supabase-app
-   ```
+```bash
+curl https://get.volta.sh | bash
+```
 
-   ```bash
-   yarn create next-app --example with-supabase with-supabase-app
-   ```
+Once installed, Volta will automatically use the correct Node.js and npm versions defined in `package.json`.
 
-   ```bash
-   pnpm create next-app --example with-supabase with-supabase-app
-   ```
+### Quick Start
 
-3. Use `cd` to change into the app's directory
+1. Clone the repository and install dependencies:
 
    ```bash
-   cd with-supabase-app
+   npm install
    ```
 
-4. Rename `.env.example` to `.env.local` and update the following:
+2. Copy the environment variables file:
 
-  ```env
-  NEXT_PUBLIC_SUPABASE_URL=[INSERT SUPABASE PROJECT URL]
-  NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=[INSERT SUPABASE PROJECT API PUBLISHABLE OR ANON KEY]
-  ```
-  > [!NOTE]
-  > This example uses `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, which refers to Supabase's new **publishable** key format.
-  > Both legacy **anon** keys and new **publishable** keys can be used with this variable name during the transition period. Supabase's dashboard may show `NEXT_PUBLIC_SUPABASE_ANON_KEY`; its value can be used in this example.
-  > See the [full announcement](https://github.com/orgs/supabase/discussions/29260) for more information.
+   ```bash
+   cp .env.example .env.local
+   ```
 
-  Both `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` can be found in [your Supabase project's API settings](https://supabase.com/dashboard/project/_?showConnect=true)
+3. Create a Supabase project at [database.new](https://database.new) and update `.env.local`:
 
-5. You can now run the Next.js local development server:
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=[YOUR_SUPABASE_PROJECT_URL]
+   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=[YOUR_SUPABASE_PUBLISHABLE_KEY]
+   ```
+
+   > [!NOTE]
+   > Find these values in your [Supabase project's API settings](https://supabase.com/dashboard/project/_?showConnect=true).
+
+4. Run the development server:
 
    ```bash
    npm run dev
    ```
 
-   The starter kit should now be running on [localhost:3000](http://localhost:3000/).
+   Open [localhost:3000](http://localhost:3000/) in your browser.
 
-6. This template comes with the default shadcn/ui style initialized. If you instead want other ui.shadcn styles, delete `components.json` and [re-install shadcn/ui](https://ui.shadcn.com/docs/installation/next)
+### Additional Notes
 
-> Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
+- This template uses the default shadcn/ui style. To use a different style, delete `components.json` and [re-install shadcn/ui](https://ui.shadcn.com/docs/installation/next).
+- For local Supabase development, check out [the docs](https://supabase.com/docs/guides/getting-started/local-development).
 
 ## Feedback and issues
 

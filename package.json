@@ -1,5 +1,9 @@
 {
   "private": true,
+  "volta": {
+    "node": "20.18.1",
+    "npm": "10.9.2"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
