@@ -2,6 +2,28 @@
 
 A list of spots to check out in the Bull City, from A-Z.
 
+## Overview
+
+A webapp that displays Google Maps with preselected locations filtered by first
+letter -- perfect for doing bar crawls from A-Z. Users navigate to routes like
+`/a` or `/b` to view locations starting with that letter. Each page shows an
+interactive map with markers and a sidebar list of locations.
+
+## Architecture
+
+The application follows a simple flow:
+
+1. **User Navigation**: Users visit letter-specific routes (e.g., `/a`, `/b`)
+2. **Data Fetching**: Server components fetch locations from Supabase filtered by the first letter
+3. **Map Display**: Locations are rendered on an interactive Google Map with markers
+4. **Sidebar**: A sidebar displays a list of locations that can interact with map markers
+
+The system integrates:
+
+- **Next.js** for routing and server-side rendering
+- **Supabase** for location data storage
+- **Google Maps JavaScript API** for map rendering and geocoding
+
 ## Local Development Setup
 
 ### Prerequisites
@@ -33,6 +55,7 @@ Once installed, Volta will automatically use the correct Node.js and npm version
    ```env
    NEXT_PUBLIC_SUPABASE_URL=[YOUR_SUPABASE_PROJECT_URL]
    NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=[YOUR_SUPABASE_PUBLISHABLE_KEY]
+   NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=[YOUR_GOOGLE_MAPS_API_KEY]
    ```
 
    > [!NOTE]
