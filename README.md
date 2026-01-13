@@ -41,6 +41,8 @@ The system integrates:
 
    Find your project ref in the Supabase dashboard URL: `https://supabase.com/dashboard/project/[PROJECT_REF]`
 
+   Use `npx supabase` (not just `supabase`) to run Supabase CLI commands in this project.
+
 4. Copy the environment variables file:
 
    ```bash
