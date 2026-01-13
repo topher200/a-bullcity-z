@@ -1,22 +1,18 @@
 # A-BullCity-Z
 
-A list of spots to check out in the Bull City, from A-Z.
+A list of spots to check out in the Bull City.
 
 ## Overview
 
-A webapp that displays Google Maps with preselected locations filtered by first
-letter -- perfect for doing bar crawls from A-Z. Users navigate to routes like
-`/a` or `/b` to view locations starting with that letter. Each page shows an
-interactive map with markers and a sidebar list of locations.
+A webapp that displays Google Maps with curated locations around Durham, NC (the Bull City). The application shows an interactive map with markers for all locations and a sidebar list for easy browsing.
 
 ## Architecture
 
 The application follows a simple flow:
 
-1. **User Navigation**: Users visit letter-specific routes (e.g., `/a`, `/b`)
-2. **Data Fetching**: Server components fetch locations from Supabase filtered by the first letter
-3. **Map Display**: Locations are rendered on an interactive Google Map with markers
-4. **Sidebar**: A sidebar displays a list of locations that can interact with map markers
+1. **Data Fetching**: Server components fetch all locations from Supabase
+2. **Map Display**: Locations are rendered on an interactive Google Map with markers
+3. **Sidebar**: A sidebar displays a list of locations that can interact with map markers
 
 The system integrates:
 
