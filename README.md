@@ -74,3 +74,9 @@ curl https://get.volta.sh | bash
 ### Template
 
 Created from the template at <https://demo-nextjs-with-supabase.vercel.app>
+
+## Contributing
+
+### Commit Messages
+
+This project uses [Conventional Commits](https://www.conventionalcommits.org/) for commit messages.
