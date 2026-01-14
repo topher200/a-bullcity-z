@@ -26,31 +26,32 @@ The system integrates:
 
 ## Local Development Setup
 
-### Prerequisites
-
-This project uses [Volta](https://volta.sh/) to manage Node.js and npm versions. Install Volta:
-
-```bash
-curl https://get.volta.sh | bash
-```
-
-Once installed, Volta will automatically use the correct Node.js and npm versions defined in `package.json`.
-
 ### Quick Start
 
-1. Clone the repository and install dependencies:
+1. Install dependencies:
 
    ```bash
    npm install
    ```
 
-2. Copy the environment variables file:
+2. Create a Supabase project at [database.new](https://database.new).
+
+3. Link your project and push migrations:
+
+   ```bash
+   npx supabase link --project-ref [YOUR_PROJECT_REF]
+   npx supabase db push
+   ```
+
+   Find your project ref in the Supabase dashboard URL: `https://supabase.com/dashboard/project/[PROJECT_REF]`
+
+4. Copy the environment variables file:
 
    ```bash
    cp .env.example .env.local
    ```
 
-3. Create a Supabase project at [database.new](https://database.new) and update `.env.local`:
+   Update `.env.local` with your Supabase credentials from [your project's API settings](https://supabase.com/dashboard/project/_?showConnect=true):
 
    ```env
    NEXT_PUBLIC_SUPABASE_URL=[YOUR_SUPABASE_PROJECT_URL]
@@ -58,16 +59,21 @@ Once installed, Volta will automatically use the correct Node.js and npm version
    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=[YOUR_GOOGLE_MAPS_API_KEY]
    ```
 
-   > [!NOTE]
-   > Find these values in your [Supabase project's API settings](https://supabase.com/dashboard/project/_?showConnect=true).
-
-4. Run the development server:
+5. Run the development server:
 
    ```bash
    npm run dev
    ```
 
    Open [localhost:3000](http://localhost:3000/) in your browser.
+
+### Optional: Node.js Version Management
+
+This project uses [Volta](https://volta.sh/) to manage Node.js and npm versions:
+
+```bash
+curl https://get.volta.sh | bash
+```
 
 ### Template
 
