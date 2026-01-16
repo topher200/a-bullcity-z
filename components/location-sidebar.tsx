@@ -71,9 +71,8 @@ export function LocationSidebar({
           <button
             key={location.id}
             onClick={() => onLocationSelect?.(location)}
-            className={`w-full text-left p-4 hover:bg-gray-50 transition-colors ${
-              selectedLocationId === location.id ? "bg-blue-50" : ""
-            }`}
+            className={`w-full text-left p-4 hover:bg-gray-50 transition-colors ${selectedLocationId === location.id ? "bg-blue-50" : ""
+              }`}
           >
             <h3 className="font-semibold text-gray-900">{location.name}</h3>
             <p className="text-sm text-gray-600 mt-1">{location.address}</p>

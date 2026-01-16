@@ -3,6 +3,7 @@ import type { Location } from "../types/database";
 
 /**
  * Fetch all locations from the database
+ * Works in both Client and Server Components
  */
 export async function getAllLocations(): Promise<Location[]> {
   const supabase = createClient();

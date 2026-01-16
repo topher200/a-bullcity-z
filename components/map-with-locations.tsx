@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import { GoogleMap, Marker } from "@react-google-maps/api";
 import { getAllLocations } from "@/lib/supabase/locations";
 import type { Location } from "@/lib/types/database";
 
@@ -55,25 +55,21 @@ export function MapWithLocations() {
   }
 
   return (
-    <LoadScript
-      googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}
+    <GoogleMap
+      mapContainerStyle={mapContainerStyle}
+      center={defaultCenter}
+      zoom={12}
     >
-      <GoogleMap
-        mapContainerStyle={mapContainerStyle}
-        center={defaultCenter}
-        zoom={12}
-      >
-        {locations.map((location) => (
-          <Marker
-            key={location.id}
-            position={{
-              lat: location.latitude,
-              lng: location.longitude,
-            }}
-            title={location.name}
-          />
-        ))}
-      </GoogleMap>
-    </LoadScript>
+      {locations.map((location) => (
+        <Marker
+          key={location.id}
+          position={{
+            lat: location.latitude,
+            lng: location.longitude,
+          }}
+          title={location.name}
+        />
+      ))}
+    </GoogleMap>
   );
 }
