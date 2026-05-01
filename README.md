@@ -77,6 +77,56 @@ curl https://get.volta.sh | bash
 
 Created from the template at <https://demo-nextjs-with-supabase.vercel.app>
 
+## Testing
+
+This project uses [Playwright](https://playwright.dev/) for end-to-end (E2E) testing. All Google API calls are mocked during tests to avoid external dependencies and API costs.
+
+### Running Tests
+
+```bash
+# Run all E2E tests
+npm run test:e2e
+
+# Run tests in UI mode (interactive)
+npm run test:e2e:ui
+
+# Run tests in headed mode (see browser)
+npm run test:e2e:headed
+
+# Debug tests
+npm run test:e2e:debug
+
+# View test report
+npm run test:e2e:report
+```
+
+### Google API Mocking
+
+All Google API calls are automatically mocked during tests:
+
+- **Google Maps JavaScript API** - Mocked script loading and map rendering
+- **Google Geocoding API** - Mocked geocoding responses
+- **Google Places API** - Mocked place details and text search responses
+
+The mocks return realistic test data and don't require actual API keys.
+
+### Test Environment Setup
+
+Tests require a local Supabase instance. The test utilities handle:
+
+- Database migrations
+- Test data seeding
+- Authentication setup
+- Cleanup after tests
+
+Make sure your `.env.local` has the required Supabase environment variables:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=...
+SUPABASE_SERVICE_ROLE_KEY=...  # Required for test utilities
+```
+
 ## Contributing
 
 ### Commit Messages
